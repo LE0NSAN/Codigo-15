@@ -1,0 +1,16 @@
+body{
+    background-color: aquamarine;
+}
+
+h1{
+    color: blue;
+    font-size: 80px;
+}
+.selector-clase{
+    color: red;
+
+}
+#selector-id{
+    color: yellowgreen;
+    font-size: 24px;
+}
