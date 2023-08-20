@@ -82,7 +82,7 @@ body{
 
 
 .img2{
-    border: solid white 1px;
+    border: solid hsla(0, 0%, 100%) 1px;
     width: 25px;
     border-radius: 25px;
 }
