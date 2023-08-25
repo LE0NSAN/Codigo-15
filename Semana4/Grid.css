@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+.container {
+    display: grid;
+    /* grid-template-columns: 200px 100px;
+    grid-template-rows: 100px 50px 20px 70px; */
+    grid-template-areas: "header menu menu"
+    "hero hero hero"
+    "main empty image"
+    "main empty extra"
+    "banner banner banner";
+
+
+}
+
+/* .container div{
+    border: solid;
+
+} */
+
+.header{
+    background-color: blue;
+    grid-area: header;
+    height: 10vh;
+}
+.menu{
+    background-color: red;
+    grid-area: menu;
+}
+.hero{
+    background-color: skyblue;
+    grid-area: hero;
+    height: 30vh;
+}
+.main{
+    background-color: blueviolet;
+    grid-area: main;
+}
+.empty{
+    background-color: white;
+    grid-area: empty;
+}
+.image{
+    background-color: greenyellow;
+    grid-area: image;
+}
+.extra{
+    background-color: green;
+    grid: extra;
+}
+.banner{
+    background-color: orange;
+    grid-area: banner;
+    height: 10vh;
+}
+
+@media only screen and (max-width: 600px){
+    .container {
+
+        grid-template-areas: "header"
+        "menu"
+        "hero"
+        "main"
+        "banner"
+        "extra"
+        "image";
+    
+        height: 100vh;
+    }
+
+    
+    .header{
+        background-color: blue;
+        grid-area: header;
+        width: 75vh;
+        height: 20vh;
+    }
+    .menu{
+        background-color: red;
+        grid-area: menu;
+        height: 20vh;
+    }
+    .hero{
+        background-color: skyblue;
+        grid-area: hero;
+        height: 25vh;
+        
+    }
+    .main{
+        background-color: blueviolet;
+        grid-area: main;
+        height: 20vh;
+    }
+       .image{
+        background-color: greenyellow;
+        grid-area: image;
+        height: 20vh;
+    }
+    .extra{
+        background-color: green;
+        grid: extra;
+        height: 20vh;
+    }
+    .banner{
+        background-color: orange;
+        grid-area: banner;
+        height: 20vh;
+    }
+}
