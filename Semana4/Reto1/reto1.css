@@ -59,11 +59,18 @@ body{
 
 }
 
+.main   {
+    width: 1040px;
+    margin: auto;
+
+
+}
+
 .article__section{
     display: flex;
-    padding: 60px;
-    justify-content: center;
-
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 60px;
 
 }
 
@@ -81,7 +88,7 @@ body{
 .article__container h2{
     font-size: 40px;
     font-family: "Josefin Sans", sans-serif;
-    padding-bottom: 20PX;
+    padding-bottom: 40PX;
 
 }
 
@@ -100,30 +107,53 @@ body{
 
 } */
 
+.gallery__title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+}
+
+.gallery__title>h2{
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 30px;
+
+
+}
+
+
 .gallery{
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: 70vh 70vh;
-    padding: 60px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 40vh);
+
+    justify-content: space-between;
+    /* border: solid red; */
+    gap: 20px;
+
 }
 
 
 .gallery div{
-    /* background: url("./assets/desktop/image-deep-earth.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 50vh;
-    width: 25%; */
     color: #fff;
     display: flex;
     align-items: end;
-    margin: 20px;
 
 }
+
+.gallery div:hover{
+    color: #000;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
+}
+
 
 .earth{
     background-image: url("./assets/desktop/image-deep-earth.jpg");
+
 }
+
 
 .soccer{
     background-image: url("./assets/desktop/image-curiosity.jpg");
@@ -137,6 +167,53 @@ body{
     background-image: url("./assets/desktop/image-grid.jpg");
 }
 
+.from{
+    background-image: url("./assets/desktop/image-from-above.jpg");
+}
+
+.pocket{
+    background-image: url("./assets/desktop/image-pocket-borealis.jpg");
+}
+
+.curiosity{
+    background-image: url("./assets/desktop/image-curiosity.jpg");
+}
+
+.fisheye{
+    background-image: url("./assets/desktop/image-fisheye.jpg");
+}
+
+/* .earth:hover{
+    opacity: 0.3;
+}
+
+.soccer:hover{
+    opacity: 0.3;
+}
+
+.arcade:hover{
+    opacity: 0.3;
+}
+
+.race:hover{
+    opacity: 0.3;
+}
+
+.from:hover{
+    opacity: 0.3;
+}
+
+.pocket:hover{
+    opacity: 0.3;
+}
+
+.curiosity:hover{
+    opacity: 0.3;
+}
+
+.fisheye:hover{
+    opacity: 0.3;
+} */
 
 
 .gallery div h3{
@@ -146,3 +223,156 @@ body{
     width: 20%;
 
 }
+
+.button{
+    border: solid black 2px;
+    background-color: white;
+    color: #000;
+    /* font-weight: bold; */
+    width: 100px;
+    letter-spacing: 2px;
+}  
+
+.button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+
+}
+
+.footer{
+    background-color: black;
+    margin-top: 40px;
+
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    
+    .principal__section{
+    padding: 20px;
+    background: url("./assets/mobile/image-hero.jpg");    
+    height: 80vh;
+    background-size: cover;    
+        background-repeat: no-repeat ;
+
+    }
+
+
+    .nav__list{
+        display: none;
+    }
+    
+    .hero div{
+        width: auto;
+
+
+
+    }
+
+    .hero div h1 {
+        font-size: 42px;
+
+    }
+
+
+    .main{
+        width: 375px;
+
+
+    }
+
+    .article__section{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .article__section > div > img{
+        width: 340px;
+    }
+
+    .article__container{
+        margin-left: 0;
+        padding: 0;
+        width: auto;
+        text-align: center;
+        margin-top: 40px;
+
+
+    }
+
+    .article__container h2 {
+        font-size: 32px;
+        padding-bottom: 20px;
+
+    }
+
+
+    .article__container p{
+        width: 340px;
+        margin: auto;
+
+    }
+
+
+    .gallery__title{
+        justify-content: center;
+    }
+
+    .gallery__title button{
+        display: none;
+    }
+
+
+    .gallery{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 15vh);
+        margin: 20px;
+
+    }
+
+    .gallery > div > h3{
+        font-size: 26px;
+        width: 50%;
+
+
+    }
+
+    .earth{
+        background-image: url("./assets/mobile/image-deep-earth.jpg");
+    
+    }
+    
+    
+    .soccer{
+        background-image: url("./assets/mobile/image-soccer-team.jpg");
+    }
+    
+    .arcade{
+        background-image: url("./assets/mobile/image-night-arcade.jpg");
+    }
+    
+    .race{
+        background-image: url("./assets/mobile/image-grid.jpg");
+    }
+    
+    .from{
+        background-image: url("./assets/mobile/image-from-above.jpg");
+    }
+    
+    .pocket{
+        background-image: url("./assets/mobile/image-pocket-borealis.jpg");
+    }
+    
+    .curiosity{
+        background-image: url("./assets/mobile/image-curiosity.jpg");
+    }
+    
+    .fisheye{
+        background-image: url("./assets/mobile/image-fisheye.jpg");
+    }
+
+
+} 
