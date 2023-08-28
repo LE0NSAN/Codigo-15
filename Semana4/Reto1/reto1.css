@@ -5,6 +5,9 @@
 body{
     font-family: "Alata", sans-serif;
 }
+footer{
+    color: white;
+}
 
 .principal__section{
     background-image: url("./assets/desktop/image-hero.jpg");
@@ -26,8 +29,6 @@ body{
     list-style: none;
     gap: 25px;
     color: #fff;
-
-
 }
 
 /* .hero>h1{ */
@@ -78,7 +79,7 @@ body{
     align-self: end;
     /* border: solid; */
     width: 25%;
-    margin-left: -150px;
+    margin-left: -200px;
     background-color: #fff;
     /* padding: 60px; */
     padding: 60px 60px 0 60px;
@@ -156,7 +157,7 @@ body{
 
 
 .soccer{
-    background-image: url("./assets/desktop/image-curiosity.jpg");
+    background-image: url("./assets/desktop/image-soccer-team.jpg");
 }
 
 .arcade{
@@ -241,11 +242,55 @@ body{
 }
 
 .footer{
+    display: flex;
+    flex-direction: column;
+
+
     background-color: black;
-    margin-top: 40px;
+    color: white;
+    margin-top: 150px;
+    padding: 40px;
+}
+
+.container__footer{
+
+    width: 1040px;
+    margin: auto;
+}
+
+
+.grupo1{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nav__list2{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.logos__footer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grupo2{
+    display: flex;
+    justify-content: space-between;
 
 }
 
+.copyright{
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.button2{
+    visibility: hidden;
+}
 
 
 
@@ -374,5 +419,33 @@ body{
         background-image: url("./assets/mobile/image-fisheye.jpg");
     }
 
+    /* footer responsive */
+
+    .button2{
+        display: flex;
+        justify-content: center;
+        visibility:visible ;
+        margin-top: 20px;
+        /* border: solid blue; */
+
+    }
+
+    .button_responsive{
+        border: black solid 1px;
+        background-color: white;
+        padding: 10px;
+        width: 40vh;
+        letter-spacing: 2px;
+        /* font-weight: bold; */
+    }
+
+    /* .button_.button_responsive:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    
+    } */
+
+    /* FALTAAAAAA FOOTER  */
 
 } 
