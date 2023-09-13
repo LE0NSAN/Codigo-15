@@ -10,18 +10,29 @@
 </head>
 <body>
     <main class="relative">
-        <nav class="fixed top-0 left-0 right-0 flex justify-between items-center p-6 bg-white h-16 border ">
+        <nav class="fixed top-0 left-0 right-0 flex justify-between items-center p-6 bg-white h-16 ">
             <div class="flex items-center gap-4">
-                <img src="./images/icon-menu.svg" alt="" />
+                <img class="md:hidden lg: hidden " src="./images/icon-menu.svg" alt="" />
                 <img src="./images/logo.svg" alt="" />
+
+                <ul class="hidden md:Visibility lg:Visibility  ">
+                    <li>Collection</li>
+                    <li>Men</li>
+                    <li>Women</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+
             </div>
+
+
             <div class="flex items-center gap-4">
                 <img src="./images/icon-cart.svg" alt="" />
                 <img class="w-5" src="./images/image-avatar.png" alt="" />
             </div>
         </nav>
 
-        <section class="w-100%  bg-[url('./images/image-product-1.jpg')] bg-cover bg-no-repeat h-[350px] mt-8 border">
+        <section class="w-100%  bg-[url('./images/image-product-1.jpg')] bg-cover bg-no-repeat h-[350px] mt-8 border border-transparent  ">
             <!-- <img src="./images/image-product-1.jpg" alt="" /> -->
   
             <div class="m-5 flex  justify-between  my-[170px] ">
