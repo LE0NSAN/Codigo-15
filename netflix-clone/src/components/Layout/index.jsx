@@ -1,7 +1,7 @@
 import {useState} from "react";
 import logo from "../../assets/netflix-logo.png";
 import { searchInNetflix } from "../../services";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setTitles } from "../../slices/netflixSlice";
 
@@ -22,7 +22,9 @@ const dispatch = useDispatch();
   return (
     <div className="text-netflix-color-dark py-3 px-5 md:px-20 overflow-hidden">
       <div className="flex justify-between items-center">
+        <Link to="/">
         <img className="w-28 md:w-44 -ml-2 md:-ml-4" src={logo} alt="" />
+        </Link>
         <input
           type="text"
           placeholder="Buscar"
