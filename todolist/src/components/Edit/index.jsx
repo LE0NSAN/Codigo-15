@@ -1,16 +1,42 @@
 /* eslint-disable react/prop-types */
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { PencilIcon } from "@heroicons/react/24/solid";
-import { Dialog, Listbox, Transition } from "@headlessui/react";
-import { TextField } from "../../components";
-import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { Dialog } from "@headlessui/react";
+import { Button, Select, TextField } from "../../components";
+import { update } from "../../services";
+import Swal from "sweetalert2";
 
 const categories = ["Hogar", "Trabajo", "Estudio", "Ocio"];
+const priorities = ["Baja", "Media", "Alto", "Urgente"];
 
-export default function Edit({ task }) {
+export default function Edit({ task, getTasks }) {
   const [open, setOpen] = useState(false);
 
-  const [category, setCategory] = useState(categories[0]);
+  const [text, setText] = useState(task.text);
+  const [category, setCategory] = useState(task.category ?? categories[0]);
+  const [priority, setPriority] = useState(task.priority ?? priorities[0]);
+
+  const handleChange = (e) => setText(e.target.value);
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+
+    await update(task.id, {
+      text,
+      category,
+      priority,
+    });
+    // alerta
+    Swal.fire({
+      title: "Success",
+      icon: "success",
+      text: "Se actualizao correctamente",
+    });
+    // cerrar el modal
+    setOpen(false);
+    // refrescar las tareas
+    await getTasks();
+  };
 
   return (
     <>
@@ -25,47 +51,37 @@ export default function Edit({ task }) {
       >
         <div className="fixed inset-0 bg-black/30" />
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <Dialog.Panel className="bg-white mx-auto w-full min-h-[500px] md:max-w-md rounded p-4">
+          <Dialog.Panel className="bg-white mx-auto w-full md:max-w-md rounded p-4">
             <Dialog.Title>Editar tarea: {task.text}</Dialog.Title>
-            <div className="my-5">
+            <form className="my-5" onSubmit={handleEditSubmit}>
               <TextField
-                value={task.text}
+                value={text}
+                onChange={handleChange}
                 placeholder="Editar tarea"
                 className="rounded-r"
               />
               <div className="mt-5">
-                <Listbox value={category} onChange={setCategory}>
-                  <Listbox.Button className="w-full flex items-center justify-between border px-3 shadow-md py-3 rounded text-left">
-                    <span>{category}</span>
-                    <span>
-                      <ChevronUpDownIcon className="h-5 w-5" />
-                    </span>
-                  </Listbox.Button>
-                  <Transition
-                    as={Fragment}
-                    leave="transition ease-in duration-500"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <Listbox.Options className="w-full border mt-1 rounded">
-                      {categories.map((item) => (
-                        <Listbox.Option
-                          key={item}
-                          value={item}
-                          className={`py-2 px-3 hover:bg-green-200 hover:text-green-800 cursor-pointer ${
-                            item === category
-                              ? "bg-green-200 text-green-800"
-                              : "bg-white"
-                          }`}
-                        >
-                          {item}
-                        </Listbox.Option>
-                      ))}
-                    </Listbox.Options>
-                  </Transition>
-                </Listbox>
+                <Select
+                  value={category}
+                  onChange={setCategory}
+                  items={categories}
+                />
               </div>
-            </div>
+              <div className="mt-5">
+                <Select
+                  value={priority}
+                  onChange={setPriority}
+                  items={priorities}
+                />
+              </div>
+              <div className="mt-5">
+                <Button
+                  type="submit"
+                  text="Actualizar"
+                  className="rounded-l w-full text-lg font-semibold"
+                />
+              </div>
+            </form>
           </Dialog.Panel>
         </div>
       </Dialog>
